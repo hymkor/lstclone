@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	"github.com/mattn/go-isatty"
-	"github.com/zetamatta/nyagos/dos"
+	"github.com/zetamatta/go-mbcs"
 )
 
 var hash = map[string]map[int64][]string{}
@@ -60,7 +60,7 @@ func main() {
 				if isatty1 {
 					os.Stdout.WriteString(s)
 				} else {
-					if data, err := dos.UtoA(s); err != nil {
+					if data, err := mbcs.UtoA(s); err != nil {
 						fmt.Fprintf(os.Stderr, "%s: %s\n", path, err)
 						break
 					} else {
